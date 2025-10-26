@@ -1,0 +1,224 @@
+:root {
+    --color-background: rgba(252, 252, 249, 1);
+    --color-surface: rgba(255, 255, 253, 1);
+    --color-text: rgba(19, 52, 59, 1);
+    --color-primary: rgba(33, 128, 141, 1);
+    --color-primary-hover: rgba(29, 116, 128, 1);
+    --color-success: rgba(33, 128, 141, 1);
+    --color-error: rgba(192, 21, 47, 1);
+    --color-border: rgba(94, 82, 64, 0.2);
+    --radius-base: 8px;
+    --radius-lg: 12px;
+    --space-16: 16px;
+    --space-24: 24px;
+    --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-background: rgba(31, 33, 33, 1);
+        --color-surface: rgba(38, 40, 40, 1);
+        --color-text: rgba(245, 245, 245, 1);
+        --color-primary: rgba(50, 184, 198, 1);
+        --color-primary-hover: rgba(45, 166, 178, 1);
+        --color-success: rgba(50, 184, 198, 1);
+        --color-error: rgba(255, 84, 89, 1);
+        --color-border: rgba(119, 124, 124, 0.3);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-base);
+    background-color: skyblue;
+    color: var(--color-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: var(--space-16);
+}
+
+.container {
+    text-align: justify;
+    max-width: 700px;
+    width: 100%;
+}
+
+/* Instruction Page Styles */
+#instructionPage {
+    background-color: navajowhite;
+    border-radius: var(--radius-lg);
+    padding: 40px 32px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 5px solid var(--color-border);
+}
+
+#instructionPage h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-24);
+    color: var(--color-primary);
+}
+
+.instructions {
+            text-align: left;
+            margin: 30px auto;
+            max-width: 100%;
+        }
+
+.instructions li {
+    margin-bottom: 16px;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.start-btn {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 16px 48px;
+    font-size: 1.2rem;
+    border-radius: var(--radius-base);
+    cursor: pointer;
+    margin-top: 32px;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+}
+
+.start-btn:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.start-btn:active {
+    transform: scale(0.98);
+}
+
+.end-btn {
+    background-color: var(--color-error);
+    color: white;
+    border: none;
+    padding: 12px 32px;
+    font-size: 1rem;
+    border-radius: var(--radius-base);
+    cursor: pointer;
+    margin-top: 32px;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+}
+
+.end-btn:hover {
+    background-color: rgba(192, 21, 47, 0.8);
+}
+
+.end-btn:active {
+    transform: scale(0.98);
+}
+
+/* Game Page Styles */
+#gamePage {
+    display: none;
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: 48px 32px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--color-border);
+}
+
+#circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: var(--color-surface);
+    border: 4px solid var(--color-border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 32px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#letter {
+    font-size: 5rem;
+    font-weight: bold;
+    color: var(--color-text);
+}
+
+#gamePage p {
+    font-size: 1.5rem;
+    color: var(--color-text);
+    margin-top: 16px;
+}
+
+.correct {
+    background-color: var(--color-success) !important;
+    border-color: var(--color-success) !important;
+    transform: scale(1.1);
+}
+
+.correct #letter {
+    color: white;
+}
+
+.incorrect {
+    background-color: var(--color-error) !important;
+    border-color: var(--color-error) !important;
+    animation: shake 0.3s ease;
+}
+
+.incorrect #letter {
+    color: white;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    #instructionPage h1 {
+        font-size: 2rem;
+    }
+
+    #circle {
+        width: 150px;
+        height: 150px;
+    }
+
+    #letter {
+        font-size: 4rem;
+    }
+}
+#scoreContainer {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+#gameOverPage {
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: 48px 32px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border: 2px solid var(--color-border);
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+#gameOverPage h2 {
+    color: var(--color-error);
+    margin-bottom: 16px;
+}
+#gamePrompt {
+    margin-bottom: 12px;
+}

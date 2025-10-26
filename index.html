@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Matcher Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="instructionPage">
+            <h1>🎮 SPEED TYPING TEST</h1>
+            <ul class="instructions">
+                <li>✋ Place both hands on the keyboard: Left hand on A S D F, Right hand on J K L ;</li>
+                <li>🎯 Keep your fingers resting on the home row keys</li>
+                <li>📝 A random letter will appear on the screen</li>
+                <li>⌨️ Press the corresponding key without lifting your hands</li>
+                <li>✅ Green flash means correct!</li>
+                <li>❌ Red shake means try again!</li>
+                <li>🔄 A new letter appears after each correct match</li>
+            </ul>
+            <button class="start-btn" onclick="startGame()">Start Game</button>
+        </div>
+        
+<div id="gamePage">
+    <div id="circle">
+        <span id="letter">A</span>
+    </div>
+    <div id="scoreContainer">
+        <span>Score: </span><span id="score">0</span>
+    </div>
+    <p id="gamePrompt">Press the key that matches the letter!</p>
+    <button class="end-btn" onclick="endGame()">End Game</button>
+</div>
+<div id="gameOverPage" class="hidden">
+    <h2>Game Over!</h2>
+    <p>Your score: <span id="finalScore">0</span></p>
+    <button class="start-btn" onclick="restartGame()">Back to Instructions</button>
+</div>
+
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
